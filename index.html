@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مطعم ريماس للوجبات السريعة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#e8c47c;--g2:#b8893c;--tx:#fff;--mu:rgba(255,255,255,.65);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:#0b0608;color:var(--tx);font-family:Cairo,Tahoma,sans-serif;min-height:100vh}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 20% 0%,#5a1b2b 0,transparent 55%),radial-gradient(ellipse at 90% 30%,#6b4713 0,transparent 50%),radial-gradient(ellipse at 40% 100%,#3a0f1c 0,transparent 60%),#0b0608;overflow:hidden}
+.bg i{position:absolute;border-radius:50%;filter:blur(30px);opacity:.55;animation:fl 9s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translateY(-40px) scale(1.2)}}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.04));backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.2);box-shadow:0 12px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.3);border-radius:24px}
+.gold{background:linear-gradient(135deg,#f8e2a8,#d3a24f 55%,#a87623);-webkit-background-clip:text;background-clip:text;color:transparent}
+button{font-family:inherit;cursor:pointer;color:inherit}
+.btn{border:1px solid rgba(255,255,255,.35);background:linear-gradient(135deg,rgba(232,196,124,.45),rgba(232,196,124,.12));backdrop-filter:blur(10px);border-radius:18px;padding:12px 22px;font-weight:800;font-size:16px;box-shadow:0 6px 24px rgba(232,196,124,.25),inset 0 1px 0 rgba(255,255,255,.4);transition:.2s}
+.btn:active{transform:scale(.96)}
+.big{width:100%;padding:18px;font-size:20px;border-radius:30px;animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 36px rgba(232,196,124,.6),inset 0 1px 0 rgba(255,255,255,.4)}}
+#welcome{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:20px;transition:.6s}
+#welcome.out{opacity:0;visibility:hidden;transform:scale(1.05)}
+.wc{max-width:460px;width:100%;padding:34px 24px;text-align:center}
+.wc h1{font-size:28px;line-height:1.5;margin:14px 0}
+.wc p{color:var(--mu);margin:6px 0;line-height:1.8}
+.lg{width:104px;height:104px;border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;border:2px solid var(--g);background:rgba(0,0,0,.35);overflow:hidden;box-shadow:0 0 30px rgba(232,196,124,.4)}
+.lg img{width:100%;height:100%;object-fit:cover}
+header{text-align:center;padding:26px 16px 8px}
+header .lg{width:84px;height:84px;font-size:24px}
+header h2{margin:10px 0 0;font-size:24px}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:rgba(11,6,8,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding-top:calc(10px + env(safe-area-inset-top,0px))}
+nav a{white-space:nowrap;padding:8px 16px;border-radius:30px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08)}
+main{max-width:980px;margin:auto;padding:12px 14px 140px}
+.cat{margin:26px 0}
+.cat h3{font-size:24px;margin:0 6px 14px;display:flex;align-items:center;gap:10px}
+.cat h3:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--g2),transparent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.it{display:flex;gap:12px;align-items:center;padding:12px;border-radius:20px}
+.ph{width:84px;height:84px;border-radius:16px;flex:none;background:linear-gradient(135deg,rgba(232,196,124,.3),rgba(120,30,50,.4));display:flex;align-items:center;justify-content:center;font-size:34px;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.inf{flex:1;min-width:0}
+.inf b{display:block;font-size:17px}
+.pr{color:var(--g);font-weight:800;margin:4px 0 8px}
+.q{display:flex;align-items:center;gap:10px}
+.q button,.add{border:1px solid rgba(255,255,255,.3);background:rgba(232,196,124,.25);border-radius:12px;min-width:36px;height:36px;font-size:18px;font-weight:800}
+.add{padding:0 16px;font-size:14px}
+.q span{min-width:20px;text-align:center;font-weight:800}
+.bar{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:14px;right:14px;max-width:560px;margin:auto;z-index:30;display:none;align-items:center;justify-content:space-between;padding:12px 16px}
+.bar.on{display:flex}
+.mod{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center}
+.mod.on{display:flex}
+.sh{width:100%;max-width:560px;max-height:92vh;overflow:auto;padding:20px;border-radius:28px 28px 0 0;background:linear-gradient(160deg,rgba(60,20,32,.92),rgba(20,10,14,.95))}
+input,textarea,select{width:100%;margin:6px 0;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-family:inherit;font-size:15px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+footer{text-align:center;padding:30px 16px 60px}
+footer h3{font-size:30px;margin:0 0 16px}
+.soc{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.soc a{display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:20px;color:#fff;text-decoration:none;font-weight:700}
+.soc svg{width:26px;height:26px}
+.ed{display:flex;flex-direction:column;gap:6px;flex:1}
+.ed input{margin:0;padding:8px 10px}
+.tb{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));left:8px;z-index:40;display:flex;gap:6px;flex-wrap:wrap}
+.tb button{padding:8px 12px;font-size:13px}
+.sm{font-size:12px;padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1)}
+#toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:90;padding:10px 20px;border-radius:30px;background:#000c;display:none}
+</style></head><body>
+<div class="bg"><i style="width:180px;height:180px;background:#e8a93c;top:10%;left:5%"></i><i style="width:140px;height:140px;background:#c2304f;top:50%;right:8%;animation-delay:-3s"></i><i style="width:220px;height:220px;background:#7a2a8a;bottom:5%;left:30%;animation-delay:-6s;opacity:.3"></i></div>
+<div id="app"></div>
+<script id="d" type="application/json">{"logo":null,"cats":[
+{"n":"كنتاكي","e":"🍗","it":[{"n":"كنتاكي 1 كيلو","p":13000},{"n":"كنتاكي نص كيلو","p":6500},{"n":"وجبة كنتاكي","p":3500}]},
+{"n":"لفات","e":"🌯","it":[{"n":"زنگر","p":2500},{"n":"ستربس","p":2500},{"n":"مطافي","p":2500},{"n":"فلر","p":2500},{"n":"تويستر","p":2500},{"n":"برگر لحم","p":2500},{"n":"برگر لحم بالجبن","p":3000},{"n":"برگر دجاج","p":2000}]},
+{"n":"ريزو","e":"🍚","it":[{"n":"ريزو حجم صغير","p":2500},{"n":"ريزو وسط","p":3500},{"n":"ريزو كبير","p":4000},{"n":"ريزو سبايسي","p":3500},{"n":"ريزو گص دجاج","p":3500}]},
+{"n":"گص عراقي","e":"💯","it":[{"n":"گص دجاج عراقي كيلو","p":20000},{"n":"نص كيلو گص دجاج","p":10000},{"n":"صاجية","p":2000},{"n":"شاورما","p":2000}]},
+{"n":"بيتزا","e":"🍕","it":[{"n":"بيتزا دجاج صغير","p":4000},{"n":"بيتزا دجاج وسط","p":7000},{"n":"بيتزا دجاج كبير","p":10000},{"n":"بيتزا خضار صغير","p":4000},{"n":"بيتزا خضار وسط","p":7000},{"n":"بيتزا خضار كبير","p":10000},{"n":"بيتزا ببروني صغير","p":4000},{"n":"بيتزا ببروني متوسط","p":7000},{"n":"بيتزا ببروني كبير","p":10000},{"n":"بيتزا مارگريتا صغير","p":4000},{"n":"بيتزا مارگريتا وسط","p":7000},{"n":"بيتزا مارگريتا كبير","p":10000}]}
+]}</script>
+<script>
+let S=JSON.parse(document.getElementById('d').textContent);
+const cart={},PH=['07811880898','07807344237'],PASS='30067';
+let edit=false,dirty=false;
+const $=s=>document.querySelector(s),fmt=n=>Number(n||0).toLocaleString('en-US')+' د.ع';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const toast=t=>{const e=$('#toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2500)};
+const logo=()=>`<div class="lg">${S.logo?`<img src="${S.logo}">`:'<span class="gold">ريماس</span>'}</div>`;
+const tt=`<svg viewBox="0 0 24 24"><path fill="#25f4ee" d="M20.6 7.7a4.8 4.8 0 0 1-3.8-4.2V3h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V10a6.3 6.3 0 1 0 5.4 6.3V9.6a8.2 8.2 0 0 0 4.8 1.5V7.7z" transform="translate(-1 0)"/><path fill="#fe2c55" d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2V2h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V9.1a6.3 6.3 0 1 0 5.4 6.3V9a8.2 8.2 0 0 0 4.8 1.5V7.1a4.8 4.8 0 0 1-1-.4z" transform="translate(0 .5)"/><path fill="#fff" d="M20.1 7.2a4.8 4.8 0 0 1-3.8-4.2v-.5h-3.4V16a2.9 2.9 0 1 1-2-2.8V9.6a6.3 6.3 0 1 0 5.4 6.3V9.5a8.2 8.2 0 0 0 4.8 1.5V7.6a4.8 4.8 0 0 1-1-.4z" transform="translate(-.5 .25)"/></svg>`;
+const ig=`<svg viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".4" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="none" stroke="url(#ig)" stroke-width="2.2"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="url(#ig)" stroke-width="2.2"/><circle cx="17.5" cy="6.5" r="1.3" fill="#d62976"/></svg>`;
+const ph=`<svg viewBox="0 0 24 24" fill="none" stroke="#e8c47c" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`;
+function card(c,i,ci,ii){
+ const k=ci+'-'+ii,img=i.img?`<img src="${i.img}">`:c.e||'🍽️',q=cart[k]||0;
+ if(edit)return `<div class="it glass"><div class="ph">${img}</div><div class="ed"><input data-f="n" data-k="${k}" value="${esc(i.n)}"><input data-f="p" data-k="${k}" type="number" value="${i.p}"><div style="display:flex;gap:6px"><label class="sm">📷 صورة<input type="file" accept="image/*" data-img="${k}" hidden></label><button class="sm" data-a="del" data-k="${k}">🗑 حذف</button></div></div></div>`;
+ return `<div class="it glass"><div class="ph">${img}</div><div class="inf"><b>${esc(i.n)}</b><div class="pr">${fmt(i.p)}</div>${q?`<div class="q"><button data-a="dec" data-k="${k}">−</button><span>${q}</span><button data-a="inc" data-k="${k}">+</button></div>`:`<button class="add" data-a="inc" data-k="${k}">+ أضف للسلة</button>`}</div></div>`}
+function render(){
+ const y=scrollY;
+ $('#app').innerHTML=`<div id="welcome" ${sessionStorageSafe()?'class="out"':''}><div class="wc glass">${logo()}<h1 class="gold">أهلاً وسهلاً بك في مطعم ريماس للوجبات السريعة</h1><p>📍 النجف — حي ميسان — شارع النخيل<br>خلف مدرسة الصدرين</p><p>🕙 أوقات العمل<br><b>من الساعة ١٠:٠٠ صباحاً حتى ٢:٠٠ فجراً</b></p><br><button class="btn big" data-a="enter">المتابعة إلى المنيو ←</button></div></div>
+ ${edit?`<div class="tb"><button class="btn" data-a="pub">💾 حفظ ونشر للجميع</button><button class="btn" data-a="addc">＋ قسم</button><label class="btn">🖼 الشعار<input type="file" accept="image/*" data-logo hidden></label><button class="btn" data-a="exit">خروج</button></div>`:''}
+ <header>${logo()}<h2 class="gold">مطعم ريماس</h2></header>
+ <nav>${S.cats.map((c,i)=>`<a href="#c${i}">${c.e||''} ${esc(c.n)}</a>`).join('')}</nav>
+ <main>${S.cats.map((c,ci)=>`<section class="cat" id="c${ci}"><h3 class="gold">${c.e||''} ${edit?`<input data-f="cn" data-k="${ci}" value="${esc(c.n)}" style="width:50%">`:esc(c.n)}</h3><div class="grid">${c.it.map((i,ii)=>card(c,i,ci,ii)).join('')}</div>${edit?`<br><button class="btn" data-a="addi" data-k="${ci}">＋ إضافة أكلة</button> <button class="sm" data-a="delc" data-k="${ci}">حذف القسم</button>`:''}</section>`).join('')}</main>
+ <footer><h3 class="gold">تواصل بنا</h3><div class="soc"><a class="glass" href="https://www.tiktok.com/@1yyo.o?_r=1&_t=ZS-9ABxiwen3Ny" target="_blank">${tt}تيك توك</a><a class="glass" href="https://www.instagram.com/1yyo.o?stkn=a3pxaTQ3cXpwcDc4" target="_blank">${ig}انستغرام</a>${PH.map(p=>`<a class="glass" href="tel:${p}" dir="ltr">${ph}${p}</a>`).join('')}</div><br><button class="sm" data-a="lock">🔒</button></footer>
+ <div class="bar glass" id="bar"></div>
+ <div class="mod" id="mod"><div class="sh glass" id="sh"></div></div><div id="toast"></div>`;
+ bar();scrollTo(0,y)}
+function sessionStorageSafe(){return window._in}
+const total=()=>Object.entries(cart).reduce((s,[k,q])=>s+q*gi(k).p,0),cnt=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const gi=k=>{const[a,b]=k.split('-');return S.cats[a].it[b]};
+function bar(){const b=$('#bar');if(!b)return;b.className='bar glass'+(cnt()&&!edit?' on':'');b.innerHTML=`<div><b>🛒 ${cnt()} عنصر</b><div class="pr" style="margin:0">${fmt(total())}</div></div><button class="btn" data-a="cart">عرض السلة وإتمام الطلب</button>`}
+function openCart(){
+ const rows=Object.keys(cart).map(k=>`<div class="row"><div><b>${esc(gi(k).n)}</b><div class="pr" style="margin:0">${fmt(gi(k).p*cart[k])}</div></div><div class="q"><button data-a="dec" data-k="${k}" data-c="1">−</button><span>${cart[k]}</span><button data-a="inc" data-k="${k}" data-c="1">+</button></div></div>`).join('');
+ $('#sh').innerHTML=`<h3 class="gold" style="margin:0 0 8px">سلة الطلب</h3>${rows||'<p>السلة فارغة</p>'}<h3>المجموع: <span class="gold">${fmt(total())}</span></h3>${rows?`<input id="fn" placeholder="الاسم *"><input id="fp" type="tel" placeholder="رقم الهاتف *"><input id="fa" placeholder="العنوان *"><input id="fl" placeholder="أقرب نقطة دالة"><textarea id="fo" rows="2" placeholder="ملاحظات"></textarea><select id="fw">${PH.map(p=>`<option>${p}</option>`).join('')}</select><br><button class="btn big" style="animation:none" data-a="send">إرسال الطلب عبر واتساب</button>`:''}<br><button class="sm" data-a="close" style="width:100%">إغلاق</button>`;
+ $('#mod').classList.add('on')}
+document.addEventListener('click',async e=>{
+ const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,k=t.dataset.k;
+ if(a=='enter'){window._in=1;$('#welcome').classList.add('out')}
+ else if(a=='inc'||a=='dec'){cart[k]=(cart[k]||0)+(a=='inc'?1:-1);if(cart[k]<=0)delete cart[k];t.dataset.c?openCart():0;render2(t.dataset.c)}
+ else if(a=='cart')openCart();
+ else if(a=='close')$('#mod').classList.remove('on');
+ else if(a=='send'){const v=i=>$('#'+i).value.trim(),n=v('fn'),p=v('fp'),ad=v('fa');if(!n||!p||!ad)return toast('يرجى إدخال الاسم والهاتف والعنوان');
+  const m=`🍽️ *طلب جديد - مطعم ريماس*\n\n`+Object.keys(cart).map(k=>`• ${gi(k).n} × ${cart[k]} = ${fmt(gi(k).p*cart[k])}`).join('\n')+`\n\n💰 *المجموع:* ${fmt(total())}\n\n👤 الاسم: ${n}\n📞 الهاتف: ${p}\n📍 العنوان: ${ad}\n🧭 أقرب نقطة دالة: ${v('fl')||'-'}\n📝 ملاحظات: ${v('fo')||'-'}`;
+  window.open('https://wa.me/964'+v('fw').slice(1)+'?text='+encodeURIComponent(m),'_blank')}
+ else if(a=='lock'){$('#sh').innerHTML=`<h3 class="gold">وضع التعديل</h3><input id="pw" type="password" inputmode="numeric" placeholder="رمز الدخول"><button class="btn big" style="animation:none" data-a="login">دخول</button>`;$('#mod').classList.add('on')}
+ else if(a=='login'){if($('#pw').value==PASS){edit=true;render()}else toast('الرمز غير صحيح')}
+ else if(a=='exit'){if(dirty&&!confirm('توجد تعديلات غير منشورة، هل تريد الخروج؟'))return;edit=false;render()}
+ else if(a=='del'){if(confirm('حذف الأكلة؟')){const[x,y]=k.split('-');S.cats[x].it.splice(y,1);dirty=1;render()}}
+ else if(a=='delc'){if(confirm('حذف القسم بكل أكلاته؟')){S.cats.splice(k,1);dirty=1;render()}}
+ else if(a=='addi'){S.cats[k].it.push({n:'أكلة جديدة',p:0});dirty=1;render()}
+ else if(a=='addc'){S.cats.push({n:'قسم جديد',e:'🍽️',it:[]});dirty=1;render()}
+ else if(a=='pub'){const c=await claude.use('artifact');if(!c)return toast('النشر غير متاح، سجّل الدخول بحساب المالك');
+  const D=new DOMParser().parseFromString('<!doctype html>'+document.documentElement.outerHTML,'text/html');D.querySelector('#app').innerHTML='';D.querySelector('#d').textContent=JSON.stringify(S).replace(/</g,'\\u003c');
+  try{toast('جارٍ الحفظ...');await c.publish('<!doctype html>'+D.documentElement.outerHTML);dirty=0}catch(x){toast('تعذّر النشر: '+(x.code||''))}}
+});
+function render2(c){const y=scrollY;const m=$('main');m.innerHTML=S.cats.map((c,ci)=>`<section class="cat" id="c${ci}"><h3 class="gold">${c.e||''} ${esc(c.n)}</h3><div class="grid">${c.it.map((i,ii)=>card(c,i,ci,ii)).join('')}</div></section>`).join('');bar();scrollTo(0,y);if(c)openCart()}
+document.addEventListener('input',e=>{const t=e.target,f=t.dataset.f;if(!f)return;dirty=1;if(f=='cn')S.cats[t.dataset.k].n=t.value;else{const i=gi(t.dataset.k);f=='p'?i.p=+t.value:i.n=t.value}});
+const rs=(f,m,ty)=>new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,m/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);r(c.toDataURL(ty,.8))};i.src=URL.createObjectURL(f)});
+document.addEventListener('change',async e=>{const t=e.target,f=t.files&&t.files[0];if(!f)return;
+ if(t.dataset.img){gi(t.dataset.img).img=await rs(f,520,'image/jpeg');dirty=1;render()}
+ else if('logo' in t.dataset){S.logo=await rs(f,300,'image/png');dirty=1;render()}});
+render();
+</script></body></html>
